@@ -1,0 +1,92 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="container mt-0">
+        <img src="\static\images\logo3.PNG" width="250" cladd="d-inline-block aligh-top">
+    </div>
+    <div class="container mt-2">
+        <div class="row">
+            <div class="col">
+                <button id="loadHistoryButton" class="btn btn-secondary btn-sm">Logout</button>
+            </div>
+            <div class="col text-right">
+                <button id="refreshButton" class="btn btn-secondary btn-sm" onclick="window.location.reload();">All Shells</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- <script src="../static/jquery/jquery.js"></script>
+    <script src="../static/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../static/js/shell_inspection.js"></script>
+    <script src="../static/js/axios.min.js"></script> -->
+
+    <script src="\static\jquery\jquery.js"></script>
+    <link rel="stylesheet" href="\static\bootstrap\css\bootstrap.min.css">
+    <!-- <script src="\static\js\home.js"></script> -->
+    <script src="\static\js\shell_inspection.js"></script>
+    <script src="\static\js\axios.min.js"></script>
+
+    <title>Data Table</title>
+
+</head>
+<body>
+ 
+        <div class="container mt-4">
+
+            <h3 class="text-center">Data Table</h3>
+            <h6 class="small-left" id="operator">Operator</h6>
+            <h6 class="small-left" id="operation">Operation</h6>
+            <h6 class="small-left" id="product">Product</h6>
+            <div class="row justify-content-centre">
+                <div class="col-12">
+                    <div class="table-responsive-sm">
+                        <table id="dataTable" class="table table-striped">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col" class>Shell No.</th>
+                                    <th scope="col" class>Result</th>
+                                    <th scope="col" class>Comment</th>
+                                    <div class="modal fade" id="commentModal" tabindex="-1" aria-labelledby="commentModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h5 class="modal-title" id="commentModalLabel">Edit Comment</h5>
+                                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                            </div>
+                                            <div class="modal-body">
+                                              <input type="text" id="modalCommentInput" class="form-control">
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="btn btn-primary" id="saveCommentBtn">Done</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                                    <th scope="col" class>Update</th>
+                                    <th scope="col" class>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data dynamically inserted here -->
+                                <tr>
+                                    <td>loading</td>
+                                    <td>loading</td>
+                                    <td>loading</td>
+                                    <td>loading</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+  </body>
+</html>
+
+
