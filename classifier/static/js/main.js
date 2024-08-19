@@ -30,7 +30,7 @@ captureButton.addEventListener('click', () => {
 
 // Send the captured image to the API
 function sendImageToAPI(dataUrl) {
-    axios.post('http://192.168.2.60:1000/api/image-classification/make_prediction/', { image: dataUrl })
+    axios.post('http://0.0.0.0:800/api/image-classification/make_prediction/', { image: dataUrl })
         .then(response => {
 
             console.log('API Response:', response);
