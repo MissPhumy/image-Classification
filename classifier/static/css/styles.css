@@ -1,11 +1,22 @@
+/* Primary Blue */
+:root {
+    --primary-blue: #5553e9;
+    --light-blue: #6c63ff;
+    --dark-blue: #3c3abf;
+    --accent-blue: #4036e0;
+}
+/* Body and HTML styles */
 body, html {
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #6dd5ed, #2193b0); 
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(135deg, #2f254d, #5553e9, #958efa);
+    color: #F5F5F5;
     margin: 0;
     padding: 0;
     animation: fadeIn 1s ease-in-out;
+    overflow-x: hidden;
 }
 
+/* Fade-in animation */
 @keyframes fadeIn {
     from {
         opacity: 0;
@@ -15,6 +26,7 @@ body, html {
     }
 }
 
+/* Gradient background animation */
 @keyframes gradientBackground {
     0% {
         background-position: 0% 50%;
@@ -27,16 +39,18 @@ body, html {
     }
 }
 
+/* Container styles */
 .container {
     max-width: 800px;
     margin: 0 auto;
-    padding: 10px;
-    background-color: #ffffff;
-    box-shadow: 0 4px 12px rgba(26, 53, 170, 0.1);
-    border-radius: 10px;
+    padding: 20px;
+    background-color: #333;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.7); 
+    border-radius: 15px;
     animation: slideInLeft 1s ease-out;
 }
 
+/* Slide-in animation for container */
 @keyframes slideInLeft {
     from {
         transform: translateX(-100%);
@@ -48,72 +62,57 @@ body, html {
     }
 }
 
+/* Header styles */
 h1 {
-    color: #343a40;
+    color: #FFFFFF;
     font-size: 2.5rem;
     margin-bottom: 20px;
     white-space: nowrap;
     overflow: hidden;
-    border-right: 0.15em solid rgb(14, 14, 15);
+    border-right: 0.15em solid #5d40ff; 
     width: 0;
-    animation: typing 6s steps(30) forwards, blink-caret 0.75s step-end infinite;
+    animation: typing 3s steps(30) forwards, blink-caret 0.75s step-end infinite;
 }
 
+/* Typing effect */
 @keyframes typing {
     from { width: 0; }
     to { width: 100%; }
 }
 
+/* Blinking caret effect */
 @keyframes blink-caret {
     from, to { border-color: transparent; }
-    50% { border-color: rgb(38, 28, 133); }
+    50% { border-color: #7340ff; }
 }
 
+/* Styling for finished typing */
 h1.finished-typing {
-    border-right: none; /* Remove the border after typing is done */
-    animation: none; /* Stop the blinking animation */
+    border-right: none;
+    animation: none;
 }
 
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: black;
-    }
+/* Button styles */
+.btn-primary {
+    background-color: #6340ff;
+    border-color: #5d40ff;
+    font-size: 1.2rem;
+    padding: 12px 24px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 12px rgba(64, 109, 255, 0.4);
 }
 
 .btn-primary:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+    background-color: #5b1ee9;
+    transform: translateY(-4px);
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-    }
-    50% {
-        transform: scale(1.1);
-    }
-    100% {
-        transform: scale(1);
-    }
-}
-
+/* Loader styles */
 .loader {
-    border: 16px solid #f3f3f3;
+    border: 16px solid #333;
     border-radius: 50%;
-    border-top: 16px solid #3498db;
+    border-top: 16px solid #4043ff;
     width: 120px;
     height: 120px;
     animation: spin 2s linear infinite;
@@ -121,71 +120,112 @@ h1.finished-typing {
 }
 
 @keyframes spin {
-    0% {
-        transform: rotate(0deg);
-    }
-    100% {
-        transform: rotate(360deg);
-    }
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
+
+/* Video element styling */
 #video {
     max-width: 100%;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
+    border-radius: 10px;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #video:hover {
     transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.8);
 }
 
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    font-size: 1.2rem;
-    padding: 10px 20px;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    box-shadow: 0 4px 12px rgba(0, 123, 255, 0.4);
-}
-
-
-
+/* Result text styling */
 #result {
-    margin-top: 0px;
+    margin-top: 20px;
     opacity: 0;
     animation: fadeIn 1.5s ease-in-out forwards 1s;
 }
 
 #prediction, #confidence {
-    font-size: 1.1rem;
-    color: #495057;
+    font-size: 1.3rem;
+    color: #F5F5F5;
     transform: translateX(-20px);
     opacity: 0;
     animation: slideInLeft 1.2s ease-in-out forwards;
+    font-weight: bold;
+    margin-bottom: 15px;
 }
-@keyframes slideInLeft {
-    from {
-        transform: translateX(-20px);
-        opacity: 0;
+
+/* Custom styles for the collapsible navbar */
+.collapsible-navbar {
+    width: 300px;
+    background-color: #263238;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    overflow-y: auto;
+}
+
+.collapsible-navbar a {
+    padding: 15px 20px;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f8f9fa;
+    display: block;
+    border: none;
+    text-align: left;
+    background: none;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.collapsible-navbar a:hover {
+    background-color: #37474F;
+    color: #5553e9;
+}
+
+.collapsible-content {
+    padding: 15px 20px;
+    display: none;
+    background-color: #37474F;
+    overflow-y: auto;
+    max-height: 400px;
+}
+
+.main-content {
+    margin-left: 320px;
+    padding: 20px;
+}
+
+.collapsible-content {
+    transition: max-height 0.5s ease-out;
+}
+
+/* External Links */
+.external-link {
+    color: #5340ff;
+    text-decoration: none;
+}
+
+.external-link:hover {
+    text-decoration: underline;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .collapsible-navbar {
+        width: 100%;
+        height: auto;
+        position: relative;
     }
-    to {
-        transform: translateX(0);
-        opacity: 1;
+    .main-content {
+        margin-left: 0;
     }
 }
 
-#prediction, #confidence {
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-.captured-image {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 150px;
-    height: auto;
-    border: 2px solid #ccc;
-    border-radius: 5px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+.collapsible-navbar a.active {
+    background-color: #5553e9; /* Change the background color when selected */
+    color: #ffffff; /* Change the text color when selected */
 }
