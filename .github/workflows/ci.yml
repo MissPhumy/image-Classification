@@ -1,0 +1,45 @@
+name: CI/CD Pipeline
+
+# Controls when the workflow will run
+on:
+  push:
+    branches: [main]  # Triggers when code is pushed to the main branch
+  pull_request:
+    branches: [main]  # Triggers on PRs to the main branch
+
+# Specifies the jobs in the pipeline
+jobs:
+  test:
+    runs-on: ubuntu-latest  # OS for running the job
+    
+    # Steps to run tests and deploy
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2  # Fetches the latest code from the repository
+      
+      - name: Set up Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.8'  # Specify your Python version
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt  # Install dependencies from your requirements file
+
+      - name: Run Django Tests
+        run: |
+          python manage.py test  # Run your test suite
+          
+  deploy:
+    runs-on: ubuntu-latest
+    needs: test  # Ensures the deployment job runs only if tests pass
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Deploy to Heroku
+        run: |
+          git push heroku main  # Replace with your deployment command
+        env:
+          HEROKU_API_KEY: ${{ secrets.HEROKU_API_KEY }}
